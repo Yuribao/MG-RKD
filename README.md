@@ -7,7 +7,7 @@
 ### Distillation framework
 <p align="center">
   <br />
-  <img src="Imgs/kuang.pdf" width="800">
+  <img src="Imgs/kuang.pdf" width="00">
   <br />
 </p>
 
@@ -35,35 +35,13 @@ before running experiments as described below.
 ### Preparing datasets
 To run experiments for dataset used in the paper, please download from the following links and put them under `data/` (see below for instructions on organizing the datasets).
 
-- *CPF data* (`cora`, `citeseer`, `pubmed`, `a-computer`, and `a-photo`): Download the '.npz' files from [here](https://github.com/BUPT-GAMMA/CPF/tree/master/data/npz). Rename `amazon_electronics_computers.npz` and `amazon_electronics_photo.npz` to `a-computer.npz` and `a-photo.npz` respectively.
-
-- *OGB data* (`ogbn-arxiv` and `ogbn-products`): Datasets will be automatically downloaded when running the `load_data` function in `dataloader.py`. More details [here](https://ogb.stanford.edu/).
-
-- *BGNN data* (`house_class` and `vk_class`): Follow the instructions [here](https://github.com/dmlc/dgl/tree/473d5e0a4c4e4735f1c9dc9d783e0374328cca9a/examples/pytorch/bgnn) and download dataset pre-processed in DGL format from [here](https://www.dropbox.com/s/verx1evkykzli88/datasets.zip).
-
-- *NonHom data* (`penn94` and `pokec`): Follow the instructions [here](https://github.com/CUAI/Non-Homophily-Benchmarks) to download the `penn94` dataset and its splits. The `pokec` dataset will be automatically downloaded when running the `load_data` function in `dataloader.py`.
-
-- Your favourite datasets: download and add to the `load_data` function in `dataloader.py`.
+*CPF data* (`cora`, `citeseer`, `pubmed`, `a-computer`, and `a-photo`): Download the '.npz' files from [here](https://github.com/BUPT-GAMMA/CPF/tree/master/data/npz). Rename `amazon_electronics_computers.npz` and `amazon_electronics_photo.npz` to `a-computer.npz` and `a-photo.npz` respectively.
 
 
-### Usage
+### To run Classical Node Classification Task
+To quickly train a teacher model you can run train_teacher.py by specifying the experiment setting
 
-
-
-知识蒸馏
-python train_student.py --exp_setting tran --teacher GCN --student GCN --teacher_num_layers 3 --dataset cora  --out_t_path outputs
-
-
-
-For more examples, and to reproduce results in the paper, please refer to scripts in `experiments/` as below.
-
-```
-bash experiments/sage_cpf.sh
-```
-
-To extend GLNN to your own model, you may do one of the following.
-- Add your favourite model architectures to the `Model` class in `model.py`. Then follow the examples above.
-- Train teacher model and store its output (log-probabilities). Then train the student by `train_student.py` with the correct `--out_t_path`.
+python train_teacher.py --exp_setting tran --teacher GCN --dataset cora
 
 
 ## Results
