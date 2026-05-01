@@ -12,13 +12,6 @@
 </p>
 
 
-### Accuracy vs. inference time on the `ogbn-products` dataset
-
-<p align="center">
-  <br />
-  <img src="imgs/trade_off.png" width="800">
-  <br />
-</p>
 
 
 ## Getting Started
