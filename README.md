@@ -37,26 +37,18 @@ To run experiments for dataset used in the paper, please download from the follo
 
 *CPF data* (`cora`, `citeseer`, `pubmed`, `a-computer`, and `a-photo`): Download the '.npz' files from [here](https://github.com/BUPT-GAMMA/CPF/tree/master/data/npz). Rename `amazon_electronics_computers.npz` and `amazon_electronics_photo.npz` to `a-computer.npz` and `a-photo.npz` respectively.
 
-
+## Usage
 ### To run Classical Node Classification Task
 To quickly train a teacher model you can run train_teacher.py by specifying the experiment setting
-
+```
 python train_teacher.py --exp_setting tran --teacher GCN --dataset cora
+```
+
+To quickly train a student model with a pretrained teacher you can run train_student.py by specifying the experiment setting, teacher model, student model, and dataset like the example below. Make sure you train the teacher using the train_teacher.py first and have its result stored in the correct path specified by --out_t_path.
 
 
-## Results
+### 
 
-GraphSAGE vs. MLP vs. GLNN under the production setting described in the paper (transductive and inductive combined). Delta_MLP (Delta_GNN) represents difference between the GLNN and the MLP (GNN). Results show classification accuracy (higher is better); Delta_GNN > 0 indicates GLNN outperforms GNN. We observe that GLNNs always improve from MLPs by large margins and achieve competitive results as GNN on 6/7 datasets. Please see Table 3 in the paper for more details.  
-
-| Datasets   | GNN(SAGE)      | MLP          | GLNN           | Delta_MLP       | Delta_GNN         |
-|------------|----------------|--------------|----------------|-----------------|-------------------|
-| Cora       | **79.29**      | 58.98        | 78.28          | 19.30 (32.72\%) | -1.01 (-1.28\%)   |
-| Citseer    | 68.38          | 59.81        | **69.27**      | 9.46 (15.82\%)  | 0.89 (1.30\%)     |
-| Pubmed     | **74.88**      | 66.80        | 74.71          | 7.91 (11.83\%)  | -0.17 (-0.22\%)   |
-| A-computer | 82.14          | 67.38        | **82.29**      | 14.90 (22.12\%) | 0.15 (0.19\%)     |
-| A-photo    | 91.08          | 79.25        | **92.38**      | 13.13 (16.57\%) | 1.30 (1.42\%)     |
-| Arxiv      | **70.73**      | 55.30        | 65.09          | 9.79 (17.70\%)  | -5.64 (-7.97\%)   |
-| Products   | **76.60**      | 63.72        | 75.77          | 12.05 (18.91\%) | -0.83 (-1.09\%)   |
 
 
 
