@@ -1,7 +1,5 @@
-#!/bin/bash
-
-conda create -y -n glnn python=3.8
+conda create -y -n rkd python=3.8.20
 eval "$(conda shell.bash hook)"
-conda activate glnn
+conda activate rkd
 
 pip install --no-cache-dir -r requirements.txt
