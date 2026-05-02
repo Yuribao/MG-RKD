@@ -1,7 +1,15 @@
 <!-- #region -->
 # Multi-Granularity Reverse Knowledge Distillation (MG-RKD)
 
+This is a PyTorch implementation of Multi-Granularity Reverse Knowledge Distillation (MG-RKD) which is built on the source code of GLNN (https://github.com/snap-research/graphless-neural-networks/tree/main), and the code includes the following modules:
 
+Dataset Loader (Cora, Citeseer, Pubmed, Amazon-Photo, Coauthor-CS, Coauthor-Phy)
+
+Various teacher and student GNN architectures (GCN, GAT, GCN+Initial, GAT+Initial, MLP)
+
+Training paradigm for teacher GNNs and student GNNs
+
+Visualization and evaluation metrics
 
 
 
@@ -9,15 +17,11 @@
 
 ### Setup Environment
 
-We use conda for environment setup. You can use
-
-`bash ./prepare_env.sh`
-
-which will create a conda environment named `glnn` and install relevant requirements (from `requirements.txt`).   For simplicity, we use CPU-based `torch` and `dgl` versions in this guide, as specified in requirements.  To run experiments with CUDA, please install `torch` and `dgl` with proper CUDA support, remove them from `requirements.txt`, and properly set the `--device` argument in the scripts. See https://pytorch.org/ and https://www.dgl.ai/pages/start.html for more installation details. 
+We use conda for environment setup. You can use `bash ./prepare_env.sh` which will create a conda environment named `rkd` and install relevant requirements (from `requirements.txt`).   For simplicity, we use CPU-based `torch` and `dgl` versions in this guide, as specified in requirements.  To run experiments with CUDA, please install `torch` and `dgl` with proper CUDA support, remove them from `requirements.txt`, and properly set the `--device` argument in the scripts.
 
 Be sure to activate the environment with
 
-`conda activate glnn`
+`conda activate rkd`
 
 before running experiments as described below.
 
