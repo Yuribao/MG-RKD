@@ -71,13 +71,13 @@ def get_args():
     )
 
 
-    parser.add_argument( #设置训练集中每类数据的标签数量
+    parser.add_argument( 
         "--ratio_train",
         type=float,
         default=0.6,
         help="How many labeled data per class as train set",
     )
-    parser.add_argument(#设置验证集中每类数据的标签数量
+    parser.add_argument(
         "--ratio_val",
         type=float,
         default=0.2,
@@ -137,7 +137,7 @@ def get_args():
     #parser.add_argument("--learning_rate", type=float, default=1e-5)#0.01
     parser.add_argument("--weight_decay", type=float, default=0.0005) #0.0005
     parser.add_argument(
-        "--max_epoch", type=int, default=1000, help="Evaluate once per how many epochs"
+        "--max_epoch", type=int, default=500, help="Evaluate once per how many epochs"
     )
     parser.add_argument(
         "--patience",
