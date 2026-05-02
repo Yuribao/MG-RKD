@@ -40,8 +40,9 @@ python train_teacher.py --exp_setting tran --teacher GCN --dataset cora
 ```
 
 To quickly train a student model with a pretrained teacher you can run `train_student.py` by specifying the experiment setting, teacher model, student model, and dataset like the example below. Make sure you train the teacher using the train_teacher.py first and have its result stored in the correct path specified by `--out_t_path`.
-
-
+```
+python train_student.py --exp_setting tran --teacher GCN --student GCN --dataset cora --teacher_num_layers 2 --out_t_path outputs
+```
 ### 
 
 
