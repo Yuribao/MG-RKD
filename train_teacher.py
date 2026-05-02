@@ -272,10 +272,10 @@ def run(args, num_layers, hidden_dim, dropout_ratio,learning_rate, lamb, seed):
             1 - args.feature_noise
         ) * feats + args.feature_noise * torch.randn_like(feats)
 
-    out_avg = None  # 用于存储平均 logit
-    out_emb = None  # 用于存储平均 emb
+    out_avg = None  
+    out_emb = None  
     for i in range(args.num_teacher):
-        teacher_model = args.teacher[i]  # 当前教师模型类型
+        teacher_model = args.teacher[i]  
         logger.info(f"Training teacher model {i+1}: {teacher_model}")
 
         # 设置教师模型的输出路径
@@ -364,11 +364,7 @@ def run(args, num_layers, hidden_dim, dropout_ratio,learning_rate, lamb, seed):
             )
             score_lst = [score_test_tran, score_test_ind]
             
-        # 保存单个教师模型的输出 logit
-        # out_np = out.detach().cpu().numpy()
-        # np.savez(teacher_output_dir.joinpath("out"), out_np)
 
-        # 累加教师模型的输出
         if out_avg is None:
             out_avg = logits
         else:
@@ -391,12 +387,10 @@ def run(args, num_layers, hidden_dim, dropout_ratio,learning_rate, lamb, seed):
         else:
             out_emb += hidden_emb
     
-    # 对 logit 取平均
     out_avg /= args.num_teacher
     out_avg  = out_avg.log_softmax(dim=1)
     #logger.info(f"Averaged teacher logit is saved.")
     
-    #对 emb 取平均
     out_emb /= args.num_teacher
     #logger.info(f"Averaged teacher emb is saved.")
     
