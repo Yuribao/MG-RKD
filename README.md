@@ -5,7 +5,7 @@ This is a PyTorch implementation of Multi-Granularity Reverse Knowledge Distilla
 
 - Dataset Loader (Cora, Citeseer, Pubmed, Amazon-Photo, Coauthor-CS, Coauthor-Phy)
 
-- Various teacher and student GNN architectures (GCN, GAT, GCN+Initial, GAT+Initial, MLP)
+- Various teacher and student GNN architectures (GCN, GAT, GCN+Initial connection, GAT+Initial connection, MLP)
 
 - Training paradigm for teacher GNNs and student GNNs
 
