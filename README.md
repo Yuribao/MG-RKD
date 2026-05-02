@@ -3,13 +3,13 @@
 
 This is a PyTorch implementation of Multi-Granularity Reverse Knowledge Distillation (MG-RKD) which is built on the source code of GLNN (https://github.com/snap-research/graphless-neural-networks/tree/main), and the code includes the following modules:
 
-Dataset Loader (Cora, Citeseer, Pubmed, Amazon-Photo, Coauthor-CS, Coauthor-Phy)
+- Dataset Loader (Cora, Citeseer, Pubmed, Amazon-Photo, Coauthor-CS, Coauthor-Phy)
 
-Various teacher and student GNN architectures (GCN, GAT, GCN+Initial, GAT+Initial, MLP)
+- Various teacher and student GNN architectures (GCN, GAT, GCN+Initial, GAT+Initial, MLP)
 
-Training paradigm for teacher GNNs and student GNNs
+- Training paradigm for teacher GNNs and student GNNs
 
-Visualization and evaluation metrics
+- Visualization and evaluation metrics
 
 
 
