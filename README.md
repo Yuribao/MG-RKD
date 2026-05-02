@@ -7,7 +7,7 @@
 ### Distillation framework
 <p align="center">
   <br />
-  <img src="Imgs/kuang.pdf" width="00">
+  <img src="Imgs/kuang.pdf" width="800">
   <br />
 </p>
 
