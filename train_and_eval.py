@@ -874,11 +874,13 @@ def distill_run_transductive(
         optimizer.zero_grad()
         optimizer_adapter.zero_grad()
         optimizer_letkd_adapter.zero_grad()
+        optimizer_adaptive_temp.zero_grad()
 
         loss.backward()
         optimizer.step()
         optimizer_adapter.step()
         optimizer_letkd_adapter.step()
+        optimizer_adaptive_temp.step()
         
 
         if epoch % conf["eval_interval"] == 0:
@@ -920,6 +922,7 @@ def distill_run_transductive(
                 'model_state_dict': copy.deepcopy(model.state_dict()),
                 'adapter_state_dict': copy.deepcopy(letkd_adapter.state_dict()),
                 'adapter_state_dict1': copy.deepcopy(adapter.state_dict()),
+                'adapter_state_dict2': copy.deepcopy(adaptive_temp_net.state_dict())
                 }
                 count = 0
             else:
@@ -932,7 +935,7 @@ def distill_run_transductive(
     model.load_state_dict(state['model_state_dict'])
     letkd_adapter.load_state_dict(state['adapter_state_dict'])
     adapter.load_state_dict(state['adapter_state_dict1'])
-    #adaptive_temp_net.load_state_dict(state['adapter_state_dict2'])
+    adaptive_temp_net.load_state_dict(state['adapter_state_dict2']) 
     if "MLP" in model.model_name:
         logits, out, _, score_val = evaluate_mini_batch(
             model, feats, labels, criterion_l, batch_size, evaluator, idx_val
